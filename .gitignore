@@ -1,1 +1,4 @@
 texlive-archive
+*.stanza
+*.depend
+*.list
