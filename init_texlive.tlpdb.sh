@@ -1,6 +1,7 @@
 #!/bin/sh
 #
 # clean files generated last time run this script
+echo "clean files not needed..."
 rm -rvf *.stanza *.list *.depend
 #
 #  split TLCore, Package, Collection, Scheme stanza from texlive.tlpdb.orig
@@ -15,6 +16,7 @@ sed -e '/./{H;$!d;}' -e 'x;/category Scheme/!d;' texlive.tlpdb.orig > Scheme.sta
 # TLCore list
 # remove: 00texlive.config, 00texlive.image, 00texlive.installation, 00texlive.installer
 # these items are installation configuration, should not be packaged in a RPM.
+echo "generate TLCore list..."
 sed -i -e '/./{H;$!d;}' -e 'x;/name 00texlive.config\|name 00texlive.image\|name 00texlive.installation\|name 00texlive.installer/d;' TLCore.stanza
 # remove architecture dependency TLCore items
 sed -i -e '/./{H;$!d;}' -e 'x;/i386-linux\|x86_64-linux\|alpha-linux\|amd64-freebsd\|amd64-kfreebsd\|amd64-netbsd\|armel-linux\|armhf-linux\|i386-cygwin\|i386-freebsd\|i386-kfreebsd\|i386-netbsd\|i386-solaris\|mipsel-linux\|powerpc-linux\|sparc-solaris\|universal-darwin\|win32\|x86_64-cygwin\|x86_64-darwin\|x86_64-solaris/d;' TLCore.stanza
@@ -24,17 +26,20 @@ sed -i 's/name //' TLCore.list
 #
 # Package list
 # remove architecture dependency TLCore items, too
+echo "generate Package list..."
 sed -i -e '/./{H;$!d;}' -e 'x;/i386-linux\|x86_64-linux\|alpha-linux\|amd64-freebsd\|amd64-kfreebsd\|amd64-netbsd\|armel-linux\|armhf-linux\|i386-cygwin\|i386-freebsd\|i386-kfreebsd\|i386-netbsd\|i386-solaris\|mipsel-linux\|powerpc-linux\|sparc-solaris\|universal-darwin\|win32\|x86_64-cygwin\|x86_64-darwin\|x86_64-solaris/d;' Package.stanza
 sed '/^name /!d' Package.stanza > Package.list
 sed -i 's/name //' Package.list
 # end Package list
 #
 # Collection list
+echo "generate Collection list..."
 sed '/^name /!d' Collection.stanza > Collection.list
 sed -i 's/name //' Collection.list
 # end Collection list
 #
 # Scheme list
+echo "generate Scheme list"
 sed '/^name /!d'  Scheme.stanza > Scheme.list
 sed -i 's/name //' Scheme.list
 #end Scheme list
@@ -66,11 +71,6 @@ for clt in `cat Collection.list`; do
 done
 #
 #
-# split packages' stanza from Package.stanza
-for pkg in `cat Package.list`; do
-	sed -e '/./{H;$!d;}' -e "x;/name $pkg/!d;" Package.stanza > $pkg.stanza
-done
-
 
 
 
