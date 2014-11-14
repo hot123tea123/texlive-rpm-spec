@@ -7,3 +7,5 @@ spec.d
 *.sort
 .directory
 *.url
+texlivedir.backup.tar
+specdir
