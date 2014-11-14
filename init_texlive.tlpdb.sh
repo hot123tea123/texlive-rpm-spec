@@ -19,10 +19,14 @@
 ./generate-collection-depend.sh
 ./generate-scheme-depend.sh
 
+./split-reloc.sh
+./split-reloc-package-in-collection.sh
 
+./generate-url
 
-
-
+#
+# next, use wget or aria2 to download tarballs
+# run check-duplicate-depend.sh to check duplicate depend between collections
 
 
 

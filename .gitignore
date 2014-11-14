@@ -1,5 +1,9 @@
 texlive-archive
+texlivedir
 *.stanza
 *.depend
 *.list
 spec.d
+*.sort
+.directory
+*.url
