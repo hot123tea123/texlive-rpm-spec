@@ -22,7 +22,7 @@
 ./split-reloc.sh
 ./split-reloc-package-in-collection.sh
 
-./generate-url
+./generate-url.sh
 
 #
 # next, use wget or aria2 to download tarballs

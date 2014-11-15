@@ -9,3 +9,4 @@ spec.d
 *.url
 texlivedir.backup.tar
 specdir
+*.maps
