@@ -10,3 +10,4 @@ spec.d
 texlivedir.backup.tar
 specdir
 *.maps
+mycommitlog.sh
