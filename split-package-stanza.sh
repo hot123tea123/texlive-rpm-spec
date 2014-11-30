@@ -5,5 +5,5 @@
 #
 for pkg in `cat Package.list`; do
 	echo "generate $pkg.stanza..."
-	sed -e '/./{H;$!d;}' -e "x;/name $pkg/!d;" Package.stanza > $pkg.stanza
+	sed -e '/./{H;$!d;}' -e "x;/name $pkg\>/!d;" Package.stanza > $pkg.stanza
 done

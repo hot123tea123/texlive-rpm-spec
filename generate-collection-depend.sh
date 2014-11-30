@@ -12,6 +12,15 @@ done
 for clt in `cat Collection.list`; do
   sed '/^collection-/!d' $clt.package.depend > $clt.collection.depend
 done
+# delete empty $clt.collection.depend
+for clt in `cat Collection.list`; do
+  if test -s $clt.collection.depend; then
+    echo "Do noting" > /dev/null
+  else
+    rm -vf $clt.collection.depend
+  fi
+done
+#
 for clt in `cat Collection.list`; do
   sed -i '/^collection/d' $clt.package.depend
 done

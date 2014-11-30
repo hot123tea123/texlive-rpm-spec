@@ -11,3 +11,4 @@ texlivedir.backup.tar
 specdir
 *.maps
 mycommitlog.sh
+*.rev
