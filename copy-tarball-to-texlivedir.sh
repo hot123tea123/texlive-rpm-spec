@@ -1,5 +1,5 @@
 #!/bin/sh
-#
+# #
 rm -rf texlivedir
 # copy source tarball to texlivedir
 for clt in `cat Collection.list`; do
@@ -15,3 +15,38 @@ for clt in `cat Collection.list`; do
     done
   fi
 done
+#
+# get collections' revision
+for clt in `cat Collection.list`; do
+  sed '/^revision /!d' $clt.stanza > $clt.rel
+done
+for clt in `cat Collection.list`; do
+  sed -i 's/revision //' $clt.rel
+done
+#
+# change collections dir name, texlive-<collection name>-<year>.<revision>
+# and generate tarball
+sed 's/collection-//' Collection.list > texlive-collection.list
+year=2014
+for clt in `cat texlive-collection.list`; do
+  rel=`cat collection-$clt.rel`
+  mv -v texlivedir/collection-$clt texlivedir/texlive-$clt-$year.$rel
+done
+# generate tarball
+pushd texlivedir
+ls > list
+for tarball in `cat list`; do
+  tar cvfJ $tarball.tar.xz $tarball
+done
+popd
+
+
+
+
+
+
+
+
+
+
+
