@@ -1,6 +1,7 @@
 TeXLive RPM 打包笔记
 
 1. texlive.tlpdb 文件包含 TeXLive 发行版中的各种 TLCore, package, collection, scheme 的详细信息。其中，TLCore 为 texlive installer 相关的内容，一般不需要打包成 RPM；package 是 texlive 最底层的分类单位， 对应 texlive 中的每个 macro package，当然也有一些是文档包，一般来说，每个 package 都可以在 CTAN 上下载到，目前大约有4800个 package；collection 是中间的一个分类层次，每个 collection 包含了功能相关的一些 package，并且 collection 之间互不重叠，目前大约有48个 collection；而 scheme 则是最高层次的分类单位咯，scheme 包含的内容比 collection 更加丰富，而且 scheme 之间是有重叠部分的，大约有9个scheme。
+还有一个，ConTeXt，就是那个 ConTeXt。
 
 2. texlive.tlpdb 文件中，每一个 TLCore, package, collection, scheme 的描述以空格分开成区块，称为 stanza 或者 block。一个典型的 stanza 如下：
 

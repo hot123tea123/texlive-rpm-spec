@@ -12,3 +12,4 @@ specdir
 *.maps
 mycommitlog.sh
 *.rev
+*.contents
