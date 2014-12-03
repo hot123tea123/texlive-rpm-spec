@@ -2,19 +2,23 @@
 #
 ./clean-files.sh
 
-#./generate-tlcore-stanzas.sh
+./generate-tlcore-stanzas.sh
 ./generate-package-stanzas.sh
 ./generate-collection-stanzas.sh
 ./generate-scheme-stanzas.sh
+./generate-context-stanzas.sh
 
-#./generate-tlcore-list.sh
+./generate-tlcore-list.sh
 ./generate-package-list.sh
 ./generate-collection-list.sh
 ./generate-scheme-list.sh
+./generate-context-list.sh
+
 
 ./split-collection-stanza.sh
 ./split-package-stanza.sh
 ./split-scheme-stanza.sh
+./split-context-stanza.sh
 
 ./generate-collection-depend.sh
 ./generate-scheme-depend.sh
