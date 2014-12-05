@@ -29,9 +29,8 @@ done
 # which is binary or some scripts
 #
 for clt in `cat Collection.list`; do
-  sort $clt.package.depend -o $clt.package.depend.sort
+  sort -r $clt.package.depend -o $clt.package.depend.sort
 done
-sort TLCore.list -o TLCore.list.sort
 #
 for clt in `cat Collection.list`; do
   comm -23 $clt.package.depend.sort TLCore.list.sort > $clt.package.depend
