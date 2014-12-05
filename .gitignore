@@ -13,3 +13,4 @@ specdir
 mycommitlog.sh
 *.rev
 *.contents
+*.new
