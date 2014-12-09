@@ -36,5 +36,6 @@
 ./get-collection-revision.sh
 ./get-context-revision.sh
 ./get-package-revision.sh
+./get-tlcore-revision.sh
 # generate collection's CONTENTS file
 ./generate-collection-contents.sh

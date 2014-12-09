@@ -15,7 +15,7 @@ sed -i 's/name //' Package.src.list
 # generate url for download
 #
 # package.tar.xz
-sed 's/^/http:\/\/mirrors.ustc.edu.cn\/CTAN\/systems\/texlive\/tlnet\/archive\//' Package.list > package.url
+sed 's/^/ftp:\/\/tug.org\/texlive\/tlnet\/archive\//' Package.list > package.url
 sed -i 's/$/\.tar\.xz/' package.url
 #
 # package.doc.tar.xz
@@ -23,5 +23,5 @@ sed 's/^/ftp:\/\/tug.org\/texlive\/tlnet\/archive\//' Package.doc.list > package
 sed -i 's/$/\.doc\.tar\.xz/' package.doc.url
 #
 # package.source.tar.xz
-sed 's/^/http:\/\/mirrors.ustc.edu.cn\/CTAN\/systems\/texlive\/tlnet\/archive\//' Package.src.list > package.src.url
+sed 's/^/ftp:\/\/tug.org\/texlive\/tlnet\/archive\//' Package.src.list > package.src.url
 sed -i 's/$/\.source\.tar\.xz/' package.src.url
