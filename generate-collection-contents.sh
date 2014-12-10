@@ -5,11 +5,11 @@
 # <package> <revision>
 rm -vf *.contents
 for clt in `cat Collection.list`; do
-  for pkg in `cat $clt.package.depend`; do
-    tmp=`cat $pkg.rev`
-    echo $pkg > $pkg.contents
-    sed -i "s/\$/\t$tmp/" $pkg.contents
-    echo "generating $pkg for $clt"
-    cat $pkg.contents >> $clt.contents
+  for dep in `cat $clt.package.depend`; do
+    tmp=`cat $dep.rev`
+    echo $tmp > $dep.contents
+    sed -i "s/\$/\t$dep/" $dep.contents
+    echo "generating $dep for $clt..."
+    cat $dep.contents >> $clt.contents
   done
 done

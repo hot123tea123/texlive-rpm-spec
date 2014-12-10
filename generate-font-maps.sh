@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # clean files
-rm -vf *.maps
+rm -vf *.maps mapsdir
 # generate font maps file
 for clt in `cat Collection.list`; do
   for pkg in `cat $clt.package.depend`; do
@@ -21,3 +21,5 @@ done
 for tmp in *.maps; do
   sed -i 's/execute add//' $tmp
 done
+mkdir -p mapsdir
+mv *.maps mapsdir
